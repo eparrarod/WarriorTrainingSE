@@ -65,13 +65,12 @@ public class Warrior {
      * @param damage the amount of damage to be dealt in the attack.
      */
     public void attack(double damage) {
-        if (this.strength > damage) {
-            this.endurance -= (damage / 2);
-        } else {
-            this.endurance -= damage;
+        if(damage > 0.0){
+            if (this.strength > damage) {
+                this.endurance -= (endurance / 2);
+            } else {
+                this.endurance += endurance / 2;
+            }
         }
     }
-
-
 }
-

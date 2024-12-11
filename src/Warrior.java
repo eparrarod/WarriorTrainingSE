@@ -35,5 +35,43 @@ public class Warrior {
     public double getEndurance() {
         return this.endurance;
     }
+
+    /**
+     * Trains the character by increasing either strength or endurance based on the activity.
+     * Valid activities are:
+     * <ul>
+     *   <li>"weights" - Increases the character's strength by 10.</li>
+     *   <li>"cardio" - Increases the character's endurance by 5.</li>
+     * </ul>
+     * If an invalid activity is provided, an error message is displayed.
+     *
+     * @param activity the type of training activity to perform ("weights" or "cardio").
+     */
+    public void train(String activity) {
+        if (activity.equalsIgnoreCase("weights")) {
+            this.strength += 10;
+        } else if (activity.equalsIgnoreCase("cardio")) {
+            this.endurance += 5;
+        } else {
+            System.out.println("Invalid training activity");
+        }
+    }
+
+    /**
+     * Performs an attack, reducing the character's endurance based on the damage dealt.
+     * If the character's strength is greater than the damage, endurance is reduced by half
+     * of the damage value; otherwise, endurance is reduced by the full damage value.
+     *
+     * @param damage the amount of damage to be dealt in the attack.
+     */
+    public void attack(double damage) {
+        if (this.strength > damage) {
+            this.endurance -= (damage / 2);
+        } else {
+            this.endurance -= damage;
+        }
+    }
+
+
 }
 
